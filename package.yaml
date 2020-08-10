@@ -1,0 +1,54 @@
+name: ImageGlitch
+version: '0.0.1'
+synopsis: Image Glitching Tool
+description: |
+  Tool for creating glitched versions of images
+  You can find the documentation at https://github.com/bee/ImageGlitch#readme
+homepage: https://github.com/bee/ImageGlitch#readme
+bug-reports: https://github.com/bee/ImageGlitch/issues
+category: graphics, image, CLI
+author: Bee Ellis
+maintainer: Bee Ellis <bellis8099@gmail.com>
+github: bee/ImageGlitch
+copyright: 2020 Bee Ellis
+license: MIT
+license-file: LICENSE
+
+extra-source-files:
+  - README.md
+
+dependencies:
+  - base ^>= 4.13.0.0
+  - optparse-applicative
+  - JuicyPixels
+
+ghc-options:
+  - -Wall
+  - -Wcompat
+  - -Widentities
+  - -Wincomplete-uni-patterns
+  - -Wincomplete-record-updates
+
+library:
+  source-dirs: src/
+  exposed-modules:
+    - ImageGlitch
+
+executables:
+  image-glitch:
+    main: Main.hs
+    source-dirs: app/
+    ghc-options:
+      - -threaded
+      - -rtsopts
+    dependencies:
+      - imageglitch
+tests:
+  ghci-test:
+    main: Spec.hs
+    source-dirs: test/
+    ghc-options:
+      - -threaded
+    dependencies:
+      - imageglitch
+      - hspec
